@@ -25,10 +25,12 @@ store.dispatch({
     type: "ADD",
     payload: 100
 });
+
 store.dispatch({
     type: "ADD",
     payload: 22
 });
+
 store.dispatch({
     type: "SUBTRACT",
     payload: 80
