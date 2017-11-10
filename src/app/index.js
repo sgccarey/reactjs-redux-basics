@@ -1,7 +1,5 @@
-import {render} from "react-dom";
-import React from "react";
 import {createStore, combineReducers, applyMiddleware} from "redux";
-import logger from "redux-logger";
+import { createLogger } from "redux-logger";
 
 const mathReducer = (state = {
     result: 1,
@@ -55,7 +53,7 @@ const myLogger = (state) => (next) => (action) => {
 const store = createStore(
     combineReducers({mathReducer, userReducer}),
     {},
-    applyMiddleware(myLogger, logger())
+    applyMiddleware(createLogger())
 );
 
 store.subscribe(() => {
@@ -66,14 +64,17 @@ store.dispatch({
     type: "ADD",
     payload: 100
 });
+
 store.dispatch({
     type: "ADD",
     payload: 22
 });
+
 store.dispatch({
     type: "SUBTRACT",
     payload: 80
 });
+
 store.dispatch({
     type: "SET_AGE",
     payload: 30
