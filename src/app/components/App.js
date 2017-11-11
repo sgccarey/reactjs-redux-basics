@@ -33,4 +33,5 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
+// sets up mapState and mapDispatch before returning app
 export default connect(mapStateToProps, mapDispatchToProps)(App);
